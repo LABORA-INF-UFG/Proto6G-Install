@@ -36,3 +36,9 @@ Install GOLang 1.14.4:
 cd Proto6G-Install &&  ansible-playbook -K install-golang.yml
 source ~/.bashrc
 ```
+
+Run ```ifconfig``` and get the name of **internet network interface**, that provides to the host with access to the internet, like as illustrated in the figure below:
+<p align="center">
+    <img src="imagens/if_config.png"/> 
+</p>
+This interface that will be used by the UPF to provide internet access to the UE's registered in the 5GC.
