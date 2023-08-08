@@ -21,6 +21,7 @@ This repository describes steps for installing the elements that make up Proto6G
 The installation steps for each of the 3 components are described below.
 
 #### 1º 5GC (Free5gc)
+Access via terminal the machine where the 5GC will be executed. 
 Install python + git + ansible:
 ```
 sudo apt update && apt -y install python && sudo apt -y install git && sudo apt -y install ansible
@@ -64,3 +65,21 @@ After initializing the microservices that control the data and control planes, i
 <p align="center">
     <img src="images/5gc_api_start.png"/> 
 </p>
+
+#### 2º N3IWF (Free5gc)
+Access via terminal the machine where the N3IWF will be executed. 
+Install python + git + ansible:
+```
+sudo apt update && apt -y install python && sudo apt -y install git && sudo apt -y install ansible
+```
+
+Clone this repository:
+```
+git clone https://github.com/LABORA-INF-UFG/Proto6G-Install.git
+```
+
+Install GOLang 1.14.4:
+```
+cd Proto6G-Install &&  ansible-playbook -K install-golang.yml
+source ~/.bashrc
+```
