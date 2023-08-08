@@ -47,3 +47,8 @@ Run the following Ansible playbook (password for sudo is required):
 ```
 cd 5GCore-easy-install && ansible-playbook -K 5gc-install.yml -e  "internet_network_interface=<< internet network interface name>>"
 ```
+
+Wait a few seconds for Ansible to finish configuring the 5GC. The result of the execution should look something like the one shown in the figure below.
+<p align="center">
+    <img src="images/5gc_ansible_result.png"/> 
+</p>
