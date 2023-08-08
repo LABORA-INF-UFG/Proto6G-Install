@@ -54,4 +54,8 @@ Wait a few seconds for Ansible to finish configuring the 5GC. The result of the 
 </p>
 
 #### Initializing the 5GC
-After installation we must initialize the 5GC. The entire installation was performed following the standard for applications written in GOLang. Go to `` /root/go/src/free5gc `` and run the following command ``./run.sh `` 
+After installation we must initialize the 5GC. The entire installation was performed following the standard for applications written in GOLang. Go to `` /root/go/src/free5gc `` and run the following command to init 5GC functions ``./run.sh ``. After execution, the expected result is something similar to what is shown in the following figure.
+<p align="center">
+    <img src="images/5gc_start.png"/> 
+</p>
+

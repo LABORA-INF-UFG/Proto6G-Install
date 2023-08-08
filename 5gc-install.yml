@@ -1704,19 +1704,19 @@
                   # ReportCaller: enable the caller report or not, value: true or false
                   logger:
                     SMF:
-                      debugLevel: trace
+                      debugLevel: info
                       ReportCaller: false
                     NAS:
-                      debugLevel: trace
+                      debugLevel: info
                       ReportCaller: false
                     NGAP:
-                      debugLevel: trace
+                      debugLevel: info
                       ReportCaller: false
                     Aper:
-                      debugLevel: trace
+                      debugLevel: info
                       ReportCaller: false
                     PFCP:
-                      debugLevel: trace
+                      debugLevel: info
                       ReportCaller: false
 
             - name  : Build smfcfg.yaml config file
@@ -1937,7 +1937,7 @@
                     # the kind of log output
                       # debugLevel: how detailed to output, value: trace, debug, info, warn, error, fatal, panic
                       # ReportCaller: enable the caller report or not, value: true or false
-                    debugLevel: trace
+                    debugLevel: info
                     ReportCaller: false
 
                     # The IP list of the N4 interface on this UPF (Can't set to 0.0.0.0)
@@ -1971,7 +1971,7 @@
                     # the kind of log output
                       # debugLevel: how detailed to output, value: trace, debug, info, warn, error, fatal, panic
                       # ReportCaller: enable the caller report or not, value: true or false
-                    debugLevel: trace
+                    debugLevel: info
                     ReportCaller: false
 
                     # The IP list of the N4 interface on this UPF (Can't set to 0.0.0.0)
