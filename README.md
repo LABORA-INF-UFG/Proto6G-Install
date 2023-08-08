@@ -42,3 +42,8 @@ Run ```ifconfig``` and get the name of **internet network interface**, that prov
     <img src="images/if_config.png"/> 
 </p>
 This interface that will be used by the UPF to provide internet access to the UE's registered in the 5GC.
+
+Run the following Ansible playbook (password for sudo is required):
+```
+cd 5GCore-easy-install && ansible-playbook -K 5gc-install.yml -e  "internet_network_interface=<< internet network interface name>>"
+```
