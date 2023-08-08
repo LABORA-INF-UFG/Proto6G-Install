@@ -26,6 +26,7 @@
             N3IWF_IP_SEC_INTERFACE_ADDRESS: "10.0.0.1"
             N3IWF_UE_IP_ADDRESS_RANGE: "10.0.0.0/24"
             N3IWF_GTP_BIND_ADDRESS: "10.200.200.2"
+            N3IWF_IPSEC_INTERFACE_NAME: "ipsec0"
             N3IWF_IP_SEC_INTERFACE_MARK: "5"
             N3IWF_NAS_TCP_PORT: "20000"
             
@@ -145,13 +146,17 @@
                       debugLevel: info
                       ReportCaller: false
 
-           
+            - name  : Config N3IWF ipsec vti interface
+              shell : |
+                sudo ip link del {{ N3IWF_IPSEC_INTERFACE_NAME }}
+              ignore_errors: true
+
 
             - name  : Config N3IWF ipsec vti interface
               shell : |
-                sudo ip link add name ipsec0 type vti local 20.20.0.10 remote 0.0.0.0 key 5
-                sudo ip addr add 10.0.0.1/24 dev ipsec0
-                sudo ip link set ipsec0 up
+                sudo ip link add name {{ N3IWF_IPSEC_INTERFACE_NAME  }} type vti local 20.20.0.10 remote 0.0.0.0 key 5
+                sudo ip addr add 10.0.0.1/24 dev {{ N3IWF_IPSEC_INTERFACE_NAME   }}
+                sudo ip link set {{ N3IWF_IPSEC_INTERFACE_NAME  }} up
 
             - name  : Config N3IWF ipsec vti interface
               shell : |
