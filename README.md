@@ -31,7 +31,7 @@ Clone this repository:
 git clone https://github.com/LABORA-INF-UFG/Proto6G-Install.git
 ```
 
-Install GOLang:
+Install GOLang 1.14.4:
 ```
 cd Proto6G-Install &&  ansible-playbook -K install-golang.yml
 source ~/.bashrc
