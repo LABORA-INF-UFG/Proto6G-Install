@@ -46,7 +46,7 @@ This interface that will be used by the UPF to provide internet access to the UE
 
 Run the following Ansible playbook (password for sudo is required):
 ```
-cd 5GCore-easy-install && ansible-playbook -K 5gc-install.yml -e  "internet_network_interface=<< internet network interface name>>"
+cd Proto6G-Install && ansible-playbook -K 5gc-install.yml -e  "internet_network_interface=<< internet network interface name>>"
 ```
 
 Wait a few seconds for Ansible to finish configuring the 5GC. The result of the execution should look something like the one shown in the figure below.
@@ -82,4 +82,9 @@ Install GOLang 1.14.4:
 ```
 cd Proto6G-Install &&  ansible-playbook -K install-golang.yml
 source ~/.bashrc
+```
+
+Run the following Ansible playbook to install N3IWF (password for sudo is required):
+```
+cd Proto6G-Install && ansible-playbook -K n3iwf-install.yml
 ```
