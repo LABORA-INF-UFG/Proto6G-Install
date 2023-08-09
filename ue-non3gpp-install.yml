@@ -8,6 +8,7 @@
             UE_NON3GPP_CONFIG_DIR: "/root/go/src/UE-non3GPP/config"
             UE_NON3GPP_DEV_DIR: "/root/go/src/UE-non3GPP/dev"
             HOME_DIR: "/root"
+            MSIN: "7488"
             PERMANENT_KEY_VALUE: "250214c33e723a5dd523fc145fc0"
             OPC_VALUE: "464c7c52eb6e5036234984ad0bcf"
             OP_VALUE: "763286b5b9ffbdf56e1297d0887b"
@@ -50,12 +51,12 @@
                   PORT=5000
                   
                   BASE_URL="http://$HOST:$PORT/api/subscriber"
-                  K={{ msin }}{{ PERMANENT_KEY_VALUE }}
-                  OPC={{ msin }}{{ OPC_VALUE }}
-                  OP={{ msin }}{{ OP_VALUE }}
-                  SQN={{ msin }}{{ SEQ_NUMBER }}
+                  K={{ MSIN }}{{ PERMANENT_KEY_VALUE }}
+                  OPC={{ MSIN }}{{ OPC_VALUE }}
+                  OP={{ MSIN }}{{ OP_VALUE }}
+                  SQN={{ MSIN }}{{ SEQ_NUMBER }}
                   
-                  imsi={{ MCC }}{{ MNC }}0000{{ msin }}
+                  imsi={{ MCC }}{{ MNC }}0000{{ MSIN }}
                   plmnid={{ MCC }}{{ MNC }}
                   
                   
@@ -81,11 +82,11 @@
                 content: |
                   ue:
                     authsubscription:
-                      permanentkeyvalue: "{{ msin }}{{ PERMANENT_KEY_VALUE }}"
-                      opcvalue: "{{ msin }}{{ OPC_VALUE }}"
-                      opvalue: "{{ msin }}{{ OP_VALUE }}"
-                      sequencenumber: "{{ msin }}{{ SEQ_NUMBER }}"
-                    msin: "0000{{ msin }}"
+                      permanentkeyvalue: "{{ MSIN }}{{ PERMANENT_KEY_VALUE }}"
+                      opcvalue: "{{ MSIN }}{{ OPC_VALUE }}"
+                      opvalue: "{{ MSIN }}{{ OP_VALUE }}"
+                      sequencenumber: "{{ MSIN }}{{ SEQ_NUMBER }}"
+                    msin: "0000{{ MSIN }}"
                     hplmn:
                       mcc: "{{ MCC }}"
                       mnc: "{{ MNC }}"
