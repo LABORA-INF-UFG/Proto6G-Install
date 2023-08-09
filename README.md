@@ -161,9 +161,18 @@ The above log output indicates internet access through the network interface gen
 </p>
 That is, data traffic is flowing through the N3IWF, being managed and provided by the 5GC.
 
-## Possíveis Problemas
+## Troubleshooting
+Because it is a complex environment involving several components with different responsibilities and which must work in an integrated manner, some problems may arise during execution. Possible problems and their respective solutions are listed below.
 
-Eventualmete a N3IWF pode disparar um erro relacionado às interfaces XFRM do Linux. Imagem abaixo
+### N3IWF
+
+#### XFRM rules in N3IWF interface
+Eventually, the machine responsible for running the N3IWF can throw errors related to the xfrm interface. It is a set of kernel modules and userspace tools that allow configuration and management of IPsec policies and transformations. When a problem related to the xfrm interface occurs, the log reported in N3IEF will be equivalent to the one shown in the following image.
 <p align="center">
     <img src="images/erro_xfrm_n3iwf.png"/> 
 </p>
+Solution:
+* Terminate the N3IWF execution
+* run xfrm state flush: ``ip xfrm state flush``
+* run xfrm policy flush: ``ip xfrm policy flush``
+* reboot the N3IWF
