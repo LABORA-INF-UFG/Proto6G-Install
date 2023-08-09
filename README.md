@@ -128,6 +128,7 @@ Wait a few seconds for Ansible to finish configuring the UE-non3GPP. The result 
     <img src="images/uenon3gpp_ansible_result.png"/> 
 </p>
 
+##### Register UE-non3GPP into 5GC
 After installing UE-non3GPP and with the 5GC API properly initialized (see instructions [here](https://github.com/LABORA-INF-UFG/Proto6G-Install#initializing-the-5gc-api-server)), access the ``/root/go/src/UE-non3GPP/assets`` dir. Then open the ``include_ue.sh`` file in a text editor (VI or Nano) and replace ``<<replace-this-for-5GCoreAPI-Ip-Address>>`` with the IP address of the machine where the 5GC is running.
 <p align="center">
     <img src="images/include_ue_sh.png"/> 
@@ -198,3 +199,13 @@ For a UE to be able to use the 5GC functionalities, it must be duly registered i
 If eventually the terminal used to initialize the API is closed improperly, port 5000 will remain in use, preventing a new execution. In this case, the process must be terminated using kill -9 as described below:
 * Find the PID of the process that is using port 50000: ``sudo netstat -nlp | grep :5000``
 * Kill the process through the PID:: ``kill -9 <<PID-Nº>>``
+
+#### Data inconsistency in 5GC MongoDB
+In experimental scenarios, where the UE-non3GPP + 5GC connection procedures are repeated several times, it may happen that MongoDB persists inconsistent information. In these cases, it is interesting to delete the database and register the UEs again. To resolve the issue, perform the following steps:
+* Terminate the execution of UE-non3GPP, N3IWF and 5GC.
+* Access through a new terminal on the machine where 5GC was installed.
+* Type in terminal `` mongo ``  to connect MongoDB CLI.
+* In MongoDB CLI type `` use free5gc `` to connect to free5gc base.
+* Type `` db.dropDatabase() `` to completely delete the 5gc database.
+
+After deleting the database, [initialize 5GC](https://github.com/LABORA-INF-UFG/Proto6G-Install#initializing-the-5gc-functions), [initialize API Server](https://github.com/LABORA-INF-UFG/Proto6G-Install#initializing-the-5gc-api-server), [initialize N3IWF](https://github.com/LABORA-INF-UFG/Proto6G-Install#start-n3iwf), register UE-non3GPP through include_ue.sh.
