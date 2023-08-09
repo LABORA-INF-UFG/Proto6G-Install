@@ -46,7 +46,7 @@
                 content: |
                   #!/bin/bash
   
-                  HOST={{ free5gc_ip_address }}
+                  HOST=<<replace-this-for-5GCoreAPI-Ip-Address>>
                   PORT=5000
                   
                   BASE_URL="http://$HOST:$PORT/api/subscriber"
