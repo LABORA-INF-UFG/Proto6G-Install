@@ -7,6 +7,7 @@
             UE_NON3GPP_DIR_INSTALL: "/root/go/src/UE-non3GPP"
             UE_NON3GPP_CONFIG_DIR: "/root/go/src/UE-non3GPP/config"
             UE_NON3GPP_DEV_DIR: "/root/go/src/UE-non3GPP/dev"
+            UE_NON3GPP_ASSETS_DIR: "/root/go/src/UE-non3GPP/assets"
             HOME_DIR: "/root"
             MSIN: "7488"
             PERMANENT_KEY_VALUE: "250214c33e723a5dd523fc145fc0"
@@ -31,19 +32,20 @@
               shell:  sudo rm -rf {{ UE_NON3GPP_DIR_INSTALL }}
               ignore_errors: true
 
-            - name  : Git Clone UE-non3GPP
+            - name: Git Clone UE-non3GPP
               shell : git clone {{ LABORA_UE_NON3GPP_GIT_REPO }} {{ UE_NON3GPP_DIR_INSTALL  }}
               args:
                 chdir: "{{ GO_SRC_DIR }}"
 
-            - name: Remove include_ue_non3GPP.sh config file
-              shell: rm include_ue_non3GPP.sh
-              args:
-                chdir: "{{ UE_NON3GPP_DEV_DIR }}"
+            - name: Remove dev dir
+              shell: rm -rf {{ UE_NON3GPP_DEV_DIR }}
+
+            - name: Create assets dir
+              shell: mkdir {{ UE_NON3GPP_ASSETS_DIR }}
 
             - name: Build include_ue_non3GPP.sh
               copy:
-                dest: "{{ UE_NON3GPP_DEV_DIR }}/include_ue_non3GPP.sh"
+                dest: "{{ UE_NON3GPP_ASSETS_DIR }}/include_ue.sh"
                 content: |
                   #!/bin/bash
   
