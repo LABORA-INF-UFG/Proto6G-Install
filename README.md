@@ -17,7 +17,7 @@ This repository describes steps for installing the elements that make up Proto6G
 * Memory: 2 GB
 * Disk: 20 GB
 
-## Steps installation
+## Proto6G components installation
 The installation steps for each of the 3 components are described below.
 
 #### 1º 5GC (Free5gc)
@@ -125,7 +125,25 @@ After installing UE-non3GPP and with the 5GC API properly initialized (see instr
     <img src="images/include_ue_sh.png"/> 
 </p>
 
-Attention, if the machine where the UE-non3GPP is being configured does not have access to the machine where the 5GC is, the ``include_ue.sh`` file can be moved to another machine to be executed. The purpose of the ``include_ue.sh`` is to register the UE in the 5GC's MongoDB database, avoiding the need for registration through the Free5GC Web User Interface. May need to assign permission to run ``include_ue.sh`` file (``chmod 777 -R include_ue.sh``). After executing ``include_ue.sh``, a log message will be presented in the [terminal where the 5GC API is being executed](https://github.com/LABORA-INF-UFG/Proto6G-Install#initializing-the-5gc-api-server). The expected result is something similar to the one shown in the figure below (the error message can be disregarded).
+Attention, if the machine where the UE-non3GPP is being configured does not have access to the machine where the 5GC is, the ``include_ue.sh`` file can be moved to another machine to be executed. The purpose of the ``include_ue.sh`` is to register the UE in the 5GC's MongoDB database, avoiding the need for registration through the Free5GC Web User Interface. May need to assign permission to run ``include_ue.sh`` file (``chmod 777 -R include_ue.sh``). After executing ``include_ue.sh``, a log message will be presented in the [terminal where the 5GC API is being executed](https://github.com/LABORA-INF-UFG/Proto6G-Install#initializing-the-5gc-api-server). The expected result is something similar to the one shown in the figure below (unconsidered the error message).
 <p align="center">
     <img src="images/api_log_include_ue.png"/> 
+</p>
+
+## Testing Proto6G components
+After performing the [installation](https://github.com/LABORA-INF-UFG/Proto6G-Install#steps-installation) of the Proto6G components, we will test if the components were configured correctly. Open new terminal on the machine where UE-non3GPP was installed, go to the ``/root/go/src/UE-non3GPP `` dir and run the following command ``go run cmd/main.go ue``. After executing the command, the expected result is something similar to the one shown in the following figure.
+<p align="center">
+    <img src="images/ue_start.png"/> 
+</p>
+
+On the same machine, open another terminal and type ``ifconfig``. This command will list all available network interfaces. You should check if there are two network interfaces that were created by running UE-non3GPP on the list, they are: ``ipsec0`` and ``gretun1``, as highlighted by the red line in the image below.
+<p align="center">
+    <img src="images/ue_netinterfaces.png"/> 
+</p>
+
+## Possíveis Problemas
+
+Eventualmete a N3IWF pode disparar um erro relacionado às interfaces XFRM do Linux. Imagem abaixo
+<p align="center">
+    <img src="images/erro_xfrm_n3iwf.png"/> 
 </p>
