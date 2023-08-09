@@ -94,6 +94,8 @@ Run the following Ansible playbook to install N3IWF (password for sudo is requir
 ```
 cd Proto6G-Install && ansible-playbook -K n3iwf-install.yml
 ```
+
+##### Start N3IWF
 After installing the N3IWF and with the 5GC properly initialized (see instructions [here](https://github.com/LABORA-INF-UFG/Proto6G-Install#initializing-the-5gc-functions)), access the  `` /root/go/src/free5gc/NFs/n3iwf `` directory. Then type the following command  `` go run cmd/main.go `` . After execution, the expected result is something similar to what is shown in the following figure.
 <p align="center">
     <img src="images/n3iwf_start.png"/> 
@@ -177,4 +179,4 @@ Solution:
 * Terminate the N3IWF execution
 * run xfrm state flush: ``ip xfrm state flush``
 * run xfrm policy flush: ``ip xfrm policy flush``
-* reboot the N3IWF
+* Restart the N3IWF
