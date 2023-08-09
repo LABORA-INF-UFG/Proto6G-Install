@@ -88,3 +88,4 @@ Run the following Ansible playbook to install N3IWF (password for sudo is requir
 ```
 cd Proto6G-Install && ansible-playbook -K n3iwf-install.yml
 ```
+After installing the N3IWF and with the 5GC properly initialized (see instructions [here](https://github.com/LABORA-INF-UFG/Proto6G-Install#initializing-the-5gc-functions))
