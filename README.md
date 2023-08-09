@@ -171,7 +171,9 @@ Eventually, the machine responsible for running the N3IWF can throw errors relat
 <p align="center">
     <img src="images/erro_xfrm_n3iwf.png"/> 
 </p>
+
 Solution:
+
 * Terminate the N3IWF execution
 * run xfrm state flush: ``ip xfrm state flush``
 * run xfrm policy flush: ``ip xfrm policy flush``
