@@ -92,3 +92,26 @@ After installing the N3IWF and with the 5GC properly initialized (see instructio
 <p align="center">
     <img src="images/n3iwf_start.png"/> 
 </p>
+
+#### 3º UE-non3GPP
+Access via terminal the machine where the UE-non3GPP will be executed. 
+Install python + git + ansible:
+```
+sudo apt update && apt -y install python && sudo apt -y install git && sudo apt -y install ansible
+```
+
+Clone this repository:
+```
+git clone https://github.com/LABORA-INF-UFG/Proto6G-Install.git
+```
+
+Install GOLang 1.14.4:
+```
+cd Proto6G-Install &&  ansible-playbook -K install-golang.yml
+source ~/.bashrc
+```
+
+Run the following Ansible playbook to install N3IWF (password for sudo is required):
+```
+cd Proto6G-Install && ansible-playbook -K ue-non3gpp-install.yml
+```
