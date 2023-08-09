@@ -140,6 +140,15 @@ On the same machine, open another terminal and type ``ifconfig``. This command w
 <p align="center">
     <img src="images/ue_netinterfaces.png"/> 
 </p>
+In the figure above, observe the IP address highlighted by the yellow line. This address was provided by the UPF, and it is through it that UE-non3GPP will gain access to the data network. To test the connection through the 5GC, just run a **PING** command specifying the gretun1 network interface:
+
+```
+ping -I gretun1 8.8.8.8
+```
+The expected result is something similar to the one shown in the following figure.
+<p align="center">
+    <img src="images/ue_ping.png"/> 
+</p>
 
 ## Possíveis Problemas
 
