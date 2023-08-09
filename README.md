@@ -119,3 +119,10 @@ Wait a few seconds for Ansible to finish configuring the UE-non3GPP. The result 
 <p align="center">
     <img src="images/uenon3gpp_ansible_result.png"/> 
 </p>
+
+After installing UE-non3GPP and with the 5GC API properly initialized (see instructions [here](https://github.com/LABORA-INF-UFG/Proto6G-Install#initializing-the-5gc-api-server)), access the ``/root/go/src/UE-non3GPP/assets`` dir. Then open the ``include_ue.sh`` file in a text editor (VI or Nano) and replace ``<<replace-this-for-5GCoreAPI-Ip-Address>>`` with the IP address of the machine where the 5GC is running.
+<p align="center">
+    <img src="images/include_ue_sh.png"/> 
+</p>
+
+Attention, if the machine where the UE-non3GPP is being configured does not have access to the machine where the 5GC is, the ``include_ue.sh`` file can be moved to another machine to be executed. The purpose of the ``include_ue.sh`` is to register the UE in the 5GC's MongoDB database, avoiding the need for registration through the Free5GC Web User Interface.
