@@ -115,3 +115,7 @@ Run the following Ansible playbook to install N3IWF (password for sudo is requir
 ```
 cd Proto6G-Install && ansible-playbook -K ue-non3gpp-install.yml
 ```
+Wait a few seconds for Ansible to finish configuring the UE-non3GPP. The result of the execution should look something like the one shown in the figure below.
+<p align="center">
+    <img src="images/uenon3gpp_ansible_result.png"/> 
+</p>
