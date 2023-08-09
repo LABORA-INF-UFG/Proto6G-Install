@@ -167,7 +167,6 @@ That is, data traffic is flowing through the N3IWF, being managed and provided b
 Because it is a complex environment involving several components with different responsibilities and which must work in an integrated manner, some problems may arise during execution. Possible problems and their respective solutions are listed below.
 
 ### N3IWF
-
 #### XFRM rules in N3IWF interface
 Eventually, the machine responsible for running the N3IWF can throw errors related to the xfrm interface. It is a set of kernel modules and userspace tools that allow configuration and management of IPsec policies and transformations. When a problem related to the xfrm interface occurs, the log reported in N3IEF will be equivalent to the one shown in the following image.
 <p align="center">
@@ -179,4 +178,13 @@ Solution:
 * Terminate the N3IWF execution
 * run xfrm state flush: ``ip xfrm state flush``
 * run xfrm policy flush: ``ip xfrm policy flush``
-* Restart the N3IWF
+* [Restart the N3IWF](https://github.com/LABORA-INF-UFG/Proto6G-Install#start-n3iwf)
+
+
+### UE-non3GPP
+#### Conflict on the GRETUN and IPSEC Interfaces
+When running UE-non3GPP two network interfaces are created (gretunX and ipsecX). When terminating UE-non3GPP, in theory these interfaces should be removed, however in some cases they remain active. In these situations, it is necessary to remove the interfaces created so as not to generate a network conflict in the case of a new execution of the UE-non3GPP code on the machine. To remove the interfaces, just run the commands below:
+```
+sudo ip link del ipsec0
+sudo ip link del gretun1
+```
