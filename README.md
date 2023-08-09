@@ -180,11 +180,15 @@ Solution:
 * run xfrm policy flush: ``ip xfrm policy flush``
 * [Restart the N3IWF](https://github.com/LABORA-INF-UFG/Proto6G-Install#start-n3iwf)
 
-
 ### UE-non3GPP
 #### Conflict on the GRETUN and IPSEC Interfaces
-When running UE-non3GPP two network interfaces are created (gretunX and ipsecX). When terminating UE-non3GPP, in theory these interfaces should be removed, however in some cases they remain active. In these situations, it is necessary to remove the interfaces created so as not to generate a network conflict in the case of a new execution of the UE-non3GPP code on the machine. To remove the interfaces, just run the commands below:
+When running UE-non3GPP two network interfaces are created (**gretun** and **ipsec**). When terminating UE-non3GPP, in theory these interfaces should be removed, however in some cases they remain active. In these situations, it is necessary to remove the interfaces created so as not to generate a network conflict in the case of a new execution of the UE-non3GPP code on the machine. To remove the interfaces, just run the commands below:
 ```
 sudo ip link del ipsec0
 sudo ip link del gretun1
 ```
+
+### 5GC
+#### Conflict in the execution of network functions
+The 5GC network functions are initialized through a .sh. If, eventually, the connection with the terminal that initialized the .sh is closed improperly, the functions will continue running as loose processes on the execution stack. When trying to initialize the 5GC again, errors related to connection ports that are already in use will be triggered.
+To solve the problem, just run `` ./force_kill.sh ``, is located in the same directory as the ``run.sh`` script. When executing  `` ./force_kill.sh `` all active processes related to the execution of the 5GC functions will be terminated and a new execution can be performed.
