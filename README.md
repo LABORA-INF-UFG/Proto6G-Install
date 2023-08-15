@@ -24,7 +24,7 @@ The steps described in this repository were performed based on a network topolog
 
 
 ## Proto6G components installation
-The installation steps for each of the 3 components are described below.
+The installation steps for each of the 3 components are described below. All processes must be run with root permissions (SUDO SU).
 
 #### 1º 5GC (Free5gc)
 Access via terminal the machine where the 5GC will be executed. 
