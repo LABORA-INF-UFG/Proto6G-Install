@@ -69,7 +69,7 @@ After installation we must initialize the 5GC. The entire installation was perfo
 
 **Important Note:** In the image above, the __verbosity level__ of the UPF LOG was defined as ``TRACE``. In a standard installation, the __verbosity level__ is probably defined as ``INFO``, so the output will probably not be identical to the image above, which does not mean an 5GC initialization failure. Pay attention to any messages labeled as ``ERROR`` in the log output, they will be printed in <span style='color:red;'>red collor</span> and then they will indicate some failure in the installation process.
 
-<span style="color:red;">
+<span style='color: red;'>
 red collor
 </span>
 
