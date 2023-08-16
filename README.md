@@ -73,6 +73,8 @@ After installation we must initialize the 5GC. The entire installation was perfo
 text
 </span>
 
+<p style="color:#FF3633;">This text is red.</p>
+
 #### Initializing the 5GC API Server
 After initializing the microservices that control the data and control planes, it is also necessary to initialize the API that controls access to the 5GC database in MongoDB. This service will be used later for the registration of UEs in the 5GC.  Open another terminal and access the  `` /root/go/src/free5gc/webconsole `` directory. Then type the following command  `` go run server.go ``. . After execution, the expected result is something similar to what is shown in the following figure.
 <p align="center">
