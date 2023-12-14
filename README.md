@@ -41,7 +41,7 @@ git clone https://github.com/LABORA-INF-UFG/Proto6G-Install.git
 
 Install GOLang 1.14.4:
 ```
-cd Proto6G-Install &&  ansible-playbook -K golang-install.yml
+cd Proto6G-Install &&  ansible-playbook -K golang-1.14-install.yml
 source ~/.bashrc
 ```
 
@@ -89,7 +89,7 @@ git clone https://github.com/LABORA-INF-UFG/Proto6G-Install.git
 
 Install GOLang 1.14.4:
 ```
-cd Proto6G-Install &&  ansible-playbook -K golang-install.yml
+cd Proto6G-Install &&  ansible-playbook -K golang-1.14-install.yml
 source ~/.bashrc
 ```
 
@@ -116,9 +116,9 @@ Clone this repository:
 git clone https://github.com/LABORA-INF-UFG/Proto6G-Install.git
 ```
 
-Install GOLang 1.14.4:
+Install GOLang 1.21.3:
 ```
-cd Proto6G-Install &&  ansible-playbook -K golang-install.yml
+cd Proto6G-Install &&  ansible-playbook -K golang-1.21-install.yml
 source ~/.bashrc
 ```
 
