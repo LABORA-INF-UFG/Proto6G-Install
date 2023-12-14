@@ -122,7 +122,7 @@ cd Proto6G-Install &&  ansible-playbook -K golang-1.21-install.yml
 source ~/.bashrc
 ```
 
-Run the following Ansible playbook to install N3IWF (password for sudo is required):
+Run the following Ansible playbook to install UE-non3GPP (password for sudo is required):
 ```
 cd Proto6G-Install && ansible-playbook -K ue-non3gpp-install.yml
 ```
